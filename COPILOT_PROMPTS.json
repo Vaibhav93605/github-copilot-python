@@ -1,0 +1,149 @@
+{
+  "project": "Sudoku Game Refactor with GitHub Copilot",
+  "version": "2.0",
+  "description": "A collection of effective Copilot prompts used throughout this project",
+  "prompts": [
+    {
+      "id": 1,
+      "title": "Testing Framework Setup",
+      "category": "Testing",
+      "prompt": "I need to set up a testing framework for my Python Flask Sudoku game. The app has: sudoku_logic.py with functions: create_empty_board(), is_safe(), fill_board(), remove_cells(), generate_puzzle(); and app.py with routes: /, /new, /check. What testing framework should I use and how do I set it up? Please provide: 1. Which testing library to use 2. How to install it 3. Sample test cases for sudoku_logic.py 4. How to run the tests",
+      "result": "Received comprehensive pytest setup with 30+ test cases covering all functions",
+      "screenshot": "Screenshots/01_testing_framework.png"
+    },
+    {
+      "id": 2,
+      "title": "HTML Enhancement for Game Features",
+      "category": "Frontend",
+      "prompt": "Enhance my Sudoku game HTML with: 1. Difficulty selector (Easy/Medium/Hard) 2. Timer display (showing M:SS format) 3. Hints counter (current/max) 4. Hint button 5. Check puzzle button 6. Dark mode toggle 7. Leaderboard table for top 10 scores 8. Completion modal for name input. Include proper semantic HTML and accessibility attributes.",
+      "result": "Full HTML structure with all UI elements, proper form elements, and modal for completion",
+      "screenshot": "Screenshots/09_completion_modal.png"
+    },
+    {
+      "id": 3,
+      "title": "Professional CSS with Dark Mode",
+      "category": "Frontend",
+      "prompt": "Create comprehensive CSS for a Sudoku game that includes: 1. Dark mode support using CSS variables 2. Responsive design for mobile/tablet/desktop 3. 3x3 Sudoku box alternating colors 4. Visual states: prefilled, incorrect, hint, conflict 5. Accessible color contrast 6. Smooth transitions and hover effects 7. Mobile-first design with breakpoints at 768px and 480px. Use modern CSS Grid/Flexbox.",
+      "result": "1100+ lines of professional CSS with dark mode, responsive breakpoints, and proper contrast ratios",
+      "screenshot": "Screenshots/13_dark_mode_toggle.png"
+    },
+    {
+      "id": 4,
+      "title": "Game Logic Implementation",
+      "category": "Frontend",
+      "prompt": "Create comprehensive main.js for a Sudoku game with: 1. Timer starting on game begin (MM:SS format) 2. Difficulty selector changing clue counts (Easy: 40, Medium: 35, Hard: 25) 3. Hint system (max 3 hints, fills correct cell, locks it, highlights green) 4. Real-time validation highlighting conflicts 5. Leaderboard with localStorage (top 10 scores: name, time, hints, difficulty) 6. Dark mode toggle with localStorage persistence 7. Completion modal asking for name 8. Input validation (1-9 only, prevent pre-filled edits). Include proper state management.",
+      "result": "Full-featured game engine with 500+ lines of organized JavaScript handling all game logic",
+      "screenshot": "Screenshots/05_hint_system.png"
+    },
+    {
+      "id": 5,
+      "title": "Backend Documentation & Error Handling",
+      "category": "Backend",
+      "prompt": "Improve my Flask Sudoku app (app.py) with: 1. Comprehensive docstrings for all routes 2. Better error handling with try-catch blocks 3. Input validation for query/request parameters 4. Clear response structure in JSON 5. Health check endpoint 6. Proper HTTP status codes (200, 400, 500). The routes are: GET /, GET /new?clues=N, POST /check with board data.",
+      "result": "Professional Flask app with full documentation, error handling, and validation",
+      "screenshot": null
+    },
+    {
+      "id": 6,
+      "title": "Unique Solution Validation",
+      "category": "Backend",
+      "prompt": "How can I modify my generate_puzzle() function in sudoku_logic.py to ensure the puzzle has only ONE unique solution? The current function fills the board randomly and removes cells. What algorithm should I implement?",
+      "result": "Understanding of backtracking algorithm for solution uniqueness verification",
+      "screenshot": null
+    },
+    {
+      "id": 7,
+      "title": "Leaderboard Persistence",
+      "category": "Frontend",
+      "prompt": "I need to implement a leaderboard that: 1. Saves top 10 scores to browser localStorage 2. Each score has: name, time (seconds), hints_used, difficulty 3. Sorts by fastest time 4. Persists between sessions 5. Shows max 10 entries 6. Loads on page startup. Can you show me the JavaScript structure for this?",
+      "result": "Complete leaderboard system with localStorage integration, sorting, and persistence",
+      "screenshot": "Screenshots/11_leaderboard_persistence.png"
+    },
+    {
+      "id": 8,
+      "title": "Responsive Mobile Design",
+      "category": "Frontend",
+      "prompt": "How do I make my Sudoku game responsive for mobile devices? The board is 9x9 with 50px cells on desktop. For mobile (max-width: 480px), it should: 1. Reduce cell size to 35px 2. Stack controls vertically 3. Make buttons full-width or adjusted 4. Ensure text is readable 5. Make leaderboard table scrollable. Show me the CSS media queries.",
+      "result": "Mobile-optimized responsive design with proper scaling and layout adjustments",
+      "screenshot": "Screenshots/14_responsive_mobile.png"
+    },
+    {
+      "id": 9,
+      "title": "Real-time Input Validation",
+      "category": "Frontend",
+      "prompt": "How do I implement real-time input validation in my Sudoku game that: 1. Only allows numbers 1-9 2. Prevents editing pre-filled cells 3. Prevents editing hint cells 4. Checks for conflicts (same row/column/3x3 box) on input 5. Highlights conflicting cells in orange 6. Shows immediate feedback (success/error messages) 7. Clears conflicts when the conflict is resolved",
+      "result": "Complete validation system with conflict detection and visual feedback",
+      "screenshot": "Screenshots/07_conflict_detection.png"
+    },
+    {
+      "id": 10,
+      "title": "Hint System Design",
+      "category": "Frontend",
+      "prompt": "Design a hint system for Sudoku that: 1. Allows maximum 3 hints per game 2. Each hint fills one empty cell with the correct answer 3. Hint cells are locked (cannot be edited) 4. Hint cells have a distinct visual style (green background) 5. Shows remaining hints count 6. Disables hint button when limit reached 7. Shows friendly message when limit exceeded. How should I implement this in JavaScript?",
+      "result": "Fully functional hint system with tracking, visual feedback, and limit enforcement",
+      "screenshot": "Screenshots/05_hint_system.png"
+    },
+    {
+      "id": 11,
+      "title": "Completion Modal & Score Saving",
+      "category": "Frontend",
+      "prompt": "Create a completion modal that: 1. Shows when puzzle is completely and correctly solved 2. Displays congratulations message with time taken 3. Shows difficulty level and hints used 4. Has text input for player name 5. Has 'Save Score' and 'Skip' buttons 6. On Save, adds score to leaderboard 7. On Skip, just closes and shows message 8. Is modal (blocks interaction with page behind it) 9. Can be closed by both buttons. Include the HTML structure and JavaScript logic.",
+      "result": "Complete modal system with score handling and leaderboard integration",
+      "screenshot": "Screenshots/09_completion_modal.png"
+    },
+    {
+      "id": 12,
+      "title": "Dark Mode Implementation",
+      "category": "Frontend",
+      "prompt": "Implement dark mode for my Sudoku game that: 1. Uses CSS custom properties (variables) for colors 2. Has a toggle button in the header 3. Switches between light and dark theme 4. Persists preference to localStorage as 'darkMode' 5. Applies to all elements (board, buttons, leaderboard, modal) 6. Has proper contrast for accessibility 7. Includes smooth transitions between modes. Show me the CSS and JavaScript structure.",
+      "result": "Professional dark mode with CSS variables, toggle, and persistent storage",
+      "screenshot": "Screenshots/13_dark_mode_toggle.png"
+    }
+  ],
+  "tips": [
+    "Be specific about what you want (requirements, constraints, format)",
+    "Break complex features into smaller questions",
+    "Ask Copilot to explain its suggestions if you don't understand",
+    "Request code structure/organization before diving into implementation",
+    "Use Copilot for debugging: paste error messages and ask what's wrong",
+    "Ask for both the implementation AND the explanation",
+    "Request test cases when asking for new features",
+    "Use Copilot to refactor and improve existing code"
+  ],
+  "best_practices": [
+    {
+      "practice": "Clear Requirements",
+      "description": "Specify exactly what you need, including constraints and edge cases"
+    },
+    {
+      "practice": "Iterative Refinement",
+      "description": "Start with basic implementation, then ask Copilot to add features step by step"
+    },
+    {
+      "practice": "Code Review",
+      "description": "Ask Copilot to review code for bugs, performance, and best practices"
+    },
+    {
+      "practice": "Testing First",
+      "description": "Set up tests before major refactoring to catch regressions"
+    },
+    {
+      "practice": "Documentation",
+      "description": "Have Copilot add docstrings and comments to code"
+    },
+    {
+      "practice": "Error Handling",
+      "description": "Ask Copilot to add try-catch blocks and error messages"
+    }
+  ],
+  "lessons_learned": [
+    "Copilot excels at boilerplate code and common patterns",
+    "Be specific about data structures and return formats",
+    "Copilot can help debug by explaining error messages",
+    "CSS and responsive design are strong points",
+    "Always review AI-generated code before using it",
+    "Test frequently when refactoring with Copilot's help",
+    "Use Copilot for documentation and comments",
+    "Break large features into manageable prompts"
+  ]
+}
