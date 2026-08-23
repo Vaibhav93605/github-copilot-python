@@ -2,17 +2,105 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sudoku Game</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-  <h1>Sudoku Game</h1>
-  <div id="sudoku-board"></div>
-  <div class="controls">
-    <button id="new-game">New Game</button>
-    <button id="check-solution">Check Solution</button>
-    <span id="message"></span>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <h1>Sudoku</h1>
+      </div>
+      <div class="header-right">
+        <button id="dark-mode-toggle" class="dark-mode-btn" title="Toggle Dark Mode">
+          🌙 Dark Mode
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Game Controls Section -->
+      <section class="controls-section">
+        <div class="difficulty-selector">
+          <label for="difficulty">Difficulty:</label>
+          <select id="difficulty">
+            <option value="easy">Easy (40+ clues)</option>
+            <option value="medium" selected>Medium (30-39 clues)</option>
+            <option value="hard">Hard (<30 clues)</option>
+          </select>
+          <button id="new-game" class="btn btn-primary">New Game</button>
+        </div>
+
+        <div class="game-info">
+          <div class="timer-display">
+            <span class="timer-label">Time:</span>
+            <span id="timer">0:00</span>
+          </div>
+          <div class="hints-display">
+            <span class="hints-label">Hints Used:</span>
+            <span id="hints-used">0</span> / <span id="hints-remaining">3</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sudoku Board Section -->
+      <section class="board-section">
+        <div id="sudoku-board"></div>
+      </section>
+
+      <!-- Action Buttons -->
+      <section class="action-buttons">
+        <button id="hint-button" class="btn btn-secondary">Get Hint</button>
+        <button id="check-solution" class="btn btn-success">Check Puzzle</button>
+      </section>
+
+      <!-- Message Display -->
+      <div id="message" class="message"></div>
+    </main>
+
+    <!-- Leaderboard Section -->
+    <section class="leaderboard-section">
+      <h2>Top 10 Fastest Times</h2>
+      <div class="leaderboard-container">
+        <table id="leaderboard" class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Time</th>
+              <th>Level</th>
+              <th>Hints</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <tr class="empty-state">
+              <td colspan="5">No scores yet. Complete a puzzle to get on the leaderboard!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   </div>
+
+  <!-- Modal for Name Input (shown when puzzle is completed) -->
+  <div id="completion-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>🎉 Congratulations!</h2>
+      <p id="completion-message">You solved the puzzle!</p>
+      <div class="form-group">
+        <label for="player-name">Enter your name:</label>
+        <input type="text" id="player-name" placeholder="Your name" maxlength="20">
+      </div>
+      <div class="modal-buttons">
+        <button id="save-score-btn" class="btn btn-primary">Save Score</button>
+        <button id="skip-score-btn" class="btn btn-secondary">Skip</button>
+      </div>
+    </div>
+  </div>
+
   <script src="/static/main.js"></script>
 </body>
 </html>
